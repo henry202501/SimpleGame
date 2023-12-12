@@ -44,7 +44,6 @@ public class SimpleGame {
 				Double rpt = player.getWin() * 100 / player.getTotalBet();
 				player.setRpt(rpt);
 				
-				//print result
 				String resultMsg = String.format(
 						"Turn:%d, Result: %s, winCredit :%f, balance: %f, win: %f, totalBet: %f, rpt: %f", i,
 						Arrays.toString(result), winCredit, player.getBalance(), player.getWin(), player.getTotalBet(),
