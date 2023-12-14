@@ -7,7 +7,10 @@ public class Player {
 	private double totalBet;
 	private double win;
 
-	private double rpt;
+	private double rtp;
+
+	
+	
 	public String getName() {
 		return name;
 	}
@@ -32,16 +35,10 @@ public class Player {
 	public void setWin(double win) {
 		this.win = win;
 	}
-	public double getRpt() {
-		return rpt;
+	public double getRtp() {
+		return rtp;
 	}
-	public void setRpt(double rpt) {
-		this.rpt = rpt;
+	public void setRtp(double rtp) {
+		this.rtp = rtp;
 	}
-
-
-		
-	
-	
-
 }

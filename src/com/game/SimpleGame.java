@@ -3,18 +3,22 @@ package com.game;
 import java.util.Arrays;
 import java.util.Random;
 
+
+/*
+ * Return To Player = (wins sum/bets sum) X 100%
+ */
 public class SimpleGame {
 
 	public static void main(String[] args) {
-		for (int j = 1; j < 10; j++) {
+		for (int j = 1; j <3; j++) {
 			System.out.println(" Run test case :" +j);
 			// 1. Init player
 			Player player = new Player();
 			player.setName("Test01");
-			player.setBalance(100d);
+			player.setBalance(100);
 			// 2. Loop spin play
-			for (int i = 0; i < 500; i++) {
-				// Check balanc
+			for (int i = 0; i < 100; i++) {
+				// Check balance
 				if (player.getBalance() <= 0) {
 					System.out.println("You don't have enough balance");
 					break;
@@ -23,7 +27,7 @@ public class SimpleGame {
 				// Best result
 				int[] result = new int[] {};
 				double winCredit = 0d;
-				if (player.getRpt() > Constants.RTP) {
+				if (player.getRtp() > Constants.RTP) {
 					// random n result, control player loss
 					result = bestWinCredit(ControlWinlossEnum.LOSS);
 				} else {
@@ -35,19 +39,19 @@ public class SimpleGame {
 				winCredit = winCredit(result);
 				if (winCredit > 0) {
 					player.setBalance(player.getBalance() + 1);
-					player.setWin(player.getWin() + 1);
+					player.setWin(player.getWin() + 2);
 
 				} else {
 					player.setBalance(player.getBalance() - 1);
 				}
 
-				Double rpt = player.getWin() * 100 / player.getTotalBet();
-				player.setRpt(rpt);
+				Double rtp = player.getWin()*100 / player.getTotalBet();
+				player.setRtp(rtp);
 				
 				String resultMsg = String.format(
 						"Turn:%d, Result: %s, winCredit :%f, balance: %f, win: %f, totalBet: %f, rpt: %f", i,
-						Arrays.toString(result), winCredit, player.getBalance(), player.getWin(), player.getTotalBet(),
-						player.getRpt());
+						Arrays.toString(result), winCredit,  player.getBalance(), player.getWin(), player.getTotalBet(),
+						player.getRtp());
 				System.out.println(resultMsg);
 
 			}
